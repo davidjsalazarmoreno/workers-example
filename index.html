@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
 
-    <title>Web Workers basic example</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="style.css">
-    <!--[if lt IE 9]>
+  <title>Web Workers and Service Worker basic example</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <h1>
-      Web<br>Workers<br>basic<br>example
-    </h1>
+<body>
 
-    <div class="controls" tabindex="0">
-      <select name="sequences">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-        <option value="50">50</option>
-        <option value="60">60</option>
-      </select>
+  <main>
+    <article>
+      <header>
 
-      <button id="getFibonnaci">
-        Obtener secuencia de fibonacci
-      </button>
- 
-      <button id="stopCurrentWorker">
-        Detener worker actual
-      </button>
+        <h1>
+          Web Workers <span>Example</span>
+        </h1>
 
-      <p></p>
-    </div>
+        <p>Full code example in its <a href="https://github.com/davidjsalazarmoreno/workers-example">github repo</a></p>
 
-    <script src="fibonacci.js"></script>
-    <script src="main.js"></script>
-  </body>
+        <section class="controls">
+          <select name="sequences">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">60</option>
+          </select>
+
+          <p></p>
+
+          <div class="buttons">
+            <button id="getFibonnaci">
+              Obtener fibonacci
+            </button>
+
+            <button id="stopCurrentWorker">
+              Detener worker actual
+            </button>
+          </div>
+
+  
+        </section>
+      </header>
+    </article>
+  </main>
+
+  <script src="fibonacci.js"></script>
+  <script src="service-worker-installer.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
