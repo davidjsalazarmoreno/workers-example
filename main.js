@@ -1,13 +1,28 @@
 const worker = new Worker('worker.js');
-const button = document.querySelector('.controls button');
+const getFibonnaci = document.querySelector('#getFibonnaci');
+const stopCurrentWorker = document.querySelector('#stopCurrentWorker');
 const p = document.querySelector('.controls p');
 
-button.addEventListener('click', () => {
-  worker.postMessage('getRandomFibonnaci');
-  // p.textContent = fibonacci(20);
+getFibonnaci.addEventListener('click', (event) => {
+  console.log('Main Thread: Starting fibonacci worker');
+  const select = document.querySelector('select');
+  const optionSelected = select.item(select.selectedIndex);
+
+  worker.postMessage({
+    type: 'getFibonacci',
+    payload: parseInt(optionSelected.textContent)
+  });
+
+  p.textContent = fibonacci(20);
+});
+
+stopCurrentWorker.addEventListener('click', () => {
+  console.log('Main Thread: Stopping worker');
+  worker.terminate();
+  console.log('Main Thread: Worker Status', worker);
 });
 
 worker.addEventListener('message', (event) => {
-  console.log(event.data, 'resultado');
+  console.log('Main Thread: ', event.data);
   p.textContent = event.data;
 });
