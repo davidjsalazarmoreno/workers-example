@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'crafting-code-v1';
+const CACHE_VERSION = 'crafting-code-v2';
 const urlsToCache = [
   '/',
   '/assets/hero-bg.jpg',
@@ -47,7 +47,9 @@ self.addEventListener('activate', (event) => {
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
-          return caches.delete(cacheName);
+          if (!CACHE_VERSION.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
         })
       )
     })
