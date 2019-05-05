@@ -4,8 +4,12 @@ You can watch the video tutorial (spanish) on youtube
 
 ## Install
 
-```$ npm install```
+```
+$ npm install
+```
 
 ## Run
 
-```$ npm start```
+```
+$ npm start
+```
