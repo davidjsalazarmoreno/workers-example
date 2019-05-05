@@ -5,11 +5,11 @@ You can watch the video tutorial (spanish) on youtube
 ## Install
 
 ```
-$ npm install
+$ yarn install
 ```
 
 ## Run
 
 ```
-$ npm start
+$ yarn start
 ```
